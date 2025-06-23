@@ -12,6 +12,7 @@ import { temperamentosInfo } from "@/lib/data"
 import type { Cliente } from "@/lib/types"
 import TemperamentChart from "@/components/temperament-chart"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import Image from "next/image";
 
 export default function PublicResultSearch() {
   const [telefone, setTelefone] = useState("")
@@ -98,8 +99,13 @@ export default function PublicResultSearch() {
       <div className="w-full max-w-2xl space-y-8">
         <Card className="w-full rounded-2xl shadow-lg border border-slate-200/70 dark:border-slate-700/70 bg-white/80 dark:bg-slate-800/80 backdrop-blur-md">
           <CardHeader className="text-center p-8">
-            <div className="inline-block p-3 bg-sky-100 dark:bg-sky-900 rounded-full mx-auto mb-4">
-              <BarChart3 className="h-10 w-10 text-sky-600 dark:text-sky-400" />
+            <div className="inline-block p-1 bg-sky-700 dark:bg-sky-900 rounded-full mx-auto mb-1">
+              <Image
+                src="images/logo-4-temperamentos.png" // ou importado como estático
+                alt="Logo 4 Temperamentos"
+                width={100}
+                height={100}
+              />
             </div>
             <CardTitle className="text-4xl font-bold tracking-tight text-slate-800 dark:text-slate-100">
               4 Temperamentos

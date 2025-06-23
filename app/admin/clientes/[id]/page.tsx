@@ -93,7 +93,8 @@ export default async function ClienteDetailPage({ params }: { params: Params }) 
                   <span className="capitalize">{cliente.status_cliente}</span>
                 </p>
                 <p>
-                  <span className="font-medium">Valor Pago:</span> R$ {cliente.valor_pago.toFixed(2)}
+                  <span className="font-medium">Valor Pago:</span>{" "}
+                  R$ {cliente.valor_pago != null ? cliente.valor_pago.toFixed(2) : "0.00"}
                 </p>
               </div>
             </div>
@@ -101,12 +102,15 @@ export default async function ClienteDetailPage({ params }: { params: Params }) 
               <h3 className="font-semibold text-lg mb-2">Resultado do Teste</h3>
               <CardDescription className="mb-2">
                 Teste realizado em:{" "}
-                {new Date(cliente.data_teste).toLocaleDateString("pt-BR", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
+                {cliente.data_teste
+                  ? new Date(cliente.data_teste).toLocaleDateString("pt-BR", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })
+                  : "Não realizado"}
               </CardDescription>
+
               <div className="h-64 w-full p-4 border rounded-lg">
                 <TemperamentChart cliente={cliente} />
               </div>

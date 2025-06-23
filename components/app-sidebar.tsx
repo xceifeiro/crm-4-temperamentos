@@ -3,6 +3,7 @@ import Link from "next/link"
 import { Home, Users } from "lucide-react"
 import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip"
 import { usePathname } from "next/navigation"
+import Image from "next/image";
 
 export function AppSidebar() {
   const pathname = usePathname()
@@ -12,10 +13,16 @@ export function AppSidebar() {
       <nav className="flex flex-col items-center gap-4 px-2 sm:py-5">
         <Link
           href="/admin/dashboard"
-          className="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:h-8 md:w-8"
+          className=""
         >
-          <span className="text-md">4T</span>
-          <span className="sr-only">4 Temperamentos</span>
+          <div className="inline-block p-1 bg-sky-700 dark:bg-sky-900 rounded-full mx-auto mb-1">
+                        <Image
+                          src="/images/logo-4-temperamentos.png" // ou importado como estático
+                          alt="Logo 4 Temperamentos"
+                          width={50}
+                          height={50}
+                        />
+                      </div>
         </Link>
         <TooltipProvider>
           <Tooltip>

@@ -24,6 +24,7 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { usePathname } from "next/navigation"
 import { useToast } from "@/components/ui/use-toast"
+import Image from "next/image";
 
 export function Header() {
   const pathname = usePathname()
@@ -59,10 +60,16 @@ export function Header() {
           <nav className="grid gap-6 text-lg font-medium">
             <Link
               href="/admin/dashboard"
-              className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
+              className=""
             >
-              <span className="text-xl">4T</span>
-              <span className="sr-only">4 Temperamentos</span>
+              <div className="inline-block p-1 bg-sky-700 dark:bg-sky-900 rounded-full mx-auto mb-1">
+                            <Image
+                              src="/images/logo-4-temperamentos.png" // ou importado como estático
+                              alt="Logo 4 Temperamentos"
+                              width={100}
+                              height={100}
+                            />
+                          </div>
             </Link>
             <Link
               href="/admin/dashboard"

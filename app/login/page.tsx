@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useToast } from "@/components/ui/use-toast"
+import Image from "next/image";
 
 export default function LoginPage() {
   const { toast } = useToast()
@@ -46,6 +47,14 @@ export default function LoginPage() {
     <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-900">
       <Card className="mx-auto max-w-sm w-full rounded-2xl shadow-md dark:bg-slate-800 dark:border-slate-700">
         <CardHeader>
+          <div className="inline-block p-1 bg-sky-700 dark:bg-sky-900 rounded-full mx-auto mb-1">
+                        <Image
+                          src="images/logo-4-temperamentos.png" // ou importado como estático
+                          alt="Logo 4 Temperamentos"
+                          width={100}
+                          height={100}
+                        />
+          </div>
           <CardTitle className="text-2xl">Login do Administrador</CardTitle>
           <CardDescription>Entre com seu e-mail para acessar o painel</CardDescription>
         </CardHeader>
