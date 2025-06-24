@@ -5,8 +5,22 @@ import { Separator } from "@/components/ui/separator"
 import type { Cliente } from "@/lib/types"
 import { HelpCircle, MessageCirclePlus, Phone, CheckCircle, AlertTriangle } from "lucide-react"
 import { cn } from "@/lib/utils"
+import dayjs from "dayjs";
+import "dayjs/locale/pt-br";
+
+dayjs.locale("pt-br");
 
 export default function ClientCard({ client }: { client: Cliente }) {
+  
+  const dataFormatada = client.data_teste
+  ? new Date(client.data_teste).toLocaleString("pt-BR", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    })
+  : null;
+
+
   const fezTeste =
     (client.melancolico ?? 0) > 0 ||
     (client.sanguineo ?? 0) > 0 ||
@@ -43,7 +57,7 @@ export default function ClientCard({ client }: { client: Cliente }) {
         {fezTeste ? (
           <>
             <CheckCircle className="h-4 w-4 text-green-500" />
-            <span className="text-green-600 font-medium">Teste realizado</span>
+            <span className="text-green-600 font-medium">Teste realizado - {dataFormatada}</span>
           </>
         ) : (
           <>
