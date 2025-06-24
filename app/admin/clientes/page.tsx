@@ -13,7 +13,7 @@ export default function ClientesPage() {
   const [searchTerm, setSearchTerm] = useState("")
   const [allClients, setAllClients] = useState<Cliente[]>([])
   const [isLoading, setIsLoading] = useState(true)
-  const [clientesPorPagina, setClientesPorPagina] = useState(5)
+  const [clientesPorPagina, setClientesPorPagina] = useState(8)
   const { toast } = useToast()
 
   useEffect(() => {
@@ -125,7 +125,7 @@ export default function ClientesPage() {
         )}
         {clientesQueFizeram.length >= clientesPorPagina && (
           <div className="flex justify-center mt-4">
-            <Button onClick={() => setClientesPorPagina(clientesPorPagina + 5)}>Mostrar mais</Button>
+            <Button onClick={() => setClientesPorPagina(clientesPorPagina + 8)}>Mostrar mais</Button>
           </div>
         )}
       </section>
@@ -144,7 +144,7 @@ export default function ClientesPage() {
         )}
         {clientesNaoFizeram.length >= clientesPorPagina && (
           <div className="flex justify-center mt-4">
-            <Button onClick={() => setClientesPorPagina(clientesPorPagina + 5)}>Mostrar mais</Button>
+            <Button onClick={() => setClientesPorPagina(clientesPorPagina + 8)}>Mostrar mais</Button>
           </div>
         )}
       </section>
